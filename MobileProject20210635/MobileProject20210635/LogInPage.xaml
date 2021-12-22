@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+            x:Class="MobileProject20210635.LogInPage">
+    <ContentPage.Content >
+        <ScrollView BackgroundColor="LightPink">
+            <StackLayout >
+          
+                <Grid BackgroundColor="HotPink" 
+                      Margin="0,0,0,50"
+                      Padding="8">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="80" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="30" />
+                    </Grid.ColumnDefinitions>
+
+                    <Button Grid.Column="0"
+                            Padding="5"
+                            WidthRequest="70"
+                            HeightRequest="50"
+                            Text="SignUp"
+                            FontSize="Small"
+                            TextColor="DeepPink"
+                            x:Name="BtnSignUp" 
+                            Clicked="BtnSignUp_Clicked"/>
+                </Grid>
+                <StackLayout Padding="10"
+                             Margin="10">
+                    <Label Grid.Column="1"
+                       TextColor="White"
+                       Text="Login"
+                       FontSize="Title"
+                       HorizontalOptions="CenterAndExpand"
+                       Margin="20" />
+                    <Entry Placeholder="Email"
+                      PlaceholderColor="White"
+                      TextColor="DeepPink"
+                      x:Name="EntryEmail"
+                      Keyboard="Email" />
+                    <Entry Placeholder="Password"
+                     PlaceholderColor="White"
+                     TextColor="DeepPink"
+                     IsPassword="True"
+                     x:Name="EntryPassword"
+                     Keyboard="Default" />
+                    <Button Text="Login"
+                    BackgroundColor="DeepPink"  
+                    CornerRadius="50"
+                    Padding="15"
+                    Margin="15"
+                    FontSize="Medium"
+                    TextColor="white"
+                    x:Name="BtnLogin"
+                    Clicked="BtnLogin_Clicked"/>
+                </StackLayout>
+
+            </StackLayout>
+        </ScrollView>
+
+    </ContentPage.Content>
+</ContentPage>

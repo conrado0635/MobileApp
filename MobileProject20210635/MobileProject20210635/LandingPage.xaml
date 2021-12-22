@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileProject20210635.LandingPage"
+             NavigationPage.HasNavigationBar="False">
+
+    <StackLayout Background="white">
+        <Frame Padding="24" CornerRadius="0">
+            <Image Source="cake_logo.png"></Image>
+       
+        </Frame>
+      
+            <Label TextColor="DeepPink" 
+                   Text="For all your cake solutions..."
+                   HorizontalTextAlignment="Center" 
+                   FontSize="Large"
+                   Padding="40,10,40,10"/>
+            <Label TextColor="hotPink"
+                   Text="Our Store is open 24/7"
+                   HorizontalTextAlignment="Center"
+                   FontSize="Medium" 
+                   Padding="40,10,40,10"/>
+          
+        <Button Text="Begin"
+                    CornerRadius="50"
+                    Margin="15"
+                    Padding="15"
+                    FontSize="Medium"
+                    TextColor="White"
+                    BackgroundColor="HotPink"
+                    x:Name="BtnBegin" Clicked="BtnBegin_Clicked"/>
+    </StackLayout>
+
+</ContentPage>

@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             Icon="cake_logo.png"
+             mc:Ignorable="d"
+             x:Class="MobileProject20210635.SignInPage">
+ 
+    <ContentPage.Content >
+        <ScrollView BackgroundColor="LightPink">
+            <StackLayout Spacing="10"
+                         Margin="20">
+                <Label TextColor="White"
+                       Text="Sign-Up"    
+                       FontSize="Title"
+                       HorizontalTextAlignment="Center"
+                       Margin="30" />
+                <Entry Placeholder="User Name"
+                       PlaceholderColor="white"
+                       TextColor="DeepPink"
+                       x:Name="EntryName"
+                       Keyboard="Text" />
+                <Entry Placeholder="Department"
+                       PlaceholderColor="white"
+                       TextColor="DeepPink"
+                       x:Name="EntryDepartment"
+                       Keyboard="Text" />
+                <Entry Placeholder="Email"
+                       PlaceholderColor="white"
+                       TextColor="DeepPink"
+                       x:Name="EntryEmail"
+                       Keyboard="Email" />
+                <Entry Placeholder="Password"
+                       PlaceholderColor="white"
+                       TextColor="DeepPink"
+                       IsPassword="True"
+                       x:Name="EntryPassword"
+                       Keyboard="Default" />
+                <Button Text="Next"
+                        CornerRadius="20"
+                        Padding="15"
+                        Margin="15"
+                        FontSize="Medium"
+                        TextColor="White"
+                        BackgroundColor="DeepPink"
+                        x:Name="BtnSignUp" Clicked="BtnSignUp_Clicked"/>
+                <Label Text="Already have an account?"
+                       HorizontalTextAlignment="Center"
+                       TextColor="FloralWhite" />
+                <Button Text="Login"
+                        CornerRadius="20"
+                        Padding="15"
+                        Margin="15"
+                        FontSize="Medium"
+                        BackgroundColor="White"
+                        TextColor="DeepPink"
+                        x:Name="BtnLogin" 
+                        Clicked="BtnLogin_Clicked"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
