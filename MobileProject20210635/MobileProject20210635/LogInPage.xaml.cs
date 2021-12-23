@@ -12,10 +12,14 @@ namespace MobileProject20210635
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LogInPage : ContentPage
     {
-        
+        public string currentUserName;
+        public string currentUserEmail;
         public LogInPage()
         {
             InitializeComponent();
+            currentUserName = "";
+            currentUserEmail = "";
+         
 
         }
 
@@ -31,6 +35,10 @@ namespace MobileProject20210635
             var userQuery = db.Table<Models.Users>().Where(x => x.EmailAddress.Equals(EntryEmail.Text) && x.Password.Equals(EntryPassword.Text)).FirstOrDefault();
             if (userQuery != null)
             {
+                currentUserName = userQuery.Name;
+                currentUserEmail = userQuery.EmailAddress;
+
+
                 Application.Current.MainPage = new NavigationPage(new HomePage());
             }
             

@@ -152,7 +152,7 @@
     <BundleResource Include="Resources\shopping_cart.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\baseline_settings.png" />
+    <BundleResource Include="Resources\settings.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\account_circle.png" />
@@ -186,5 +186,11 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\cake_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\edit.png" />
   </ItemGroup>
 </Project>
