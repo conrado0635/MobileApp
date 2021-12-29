@@ -22,11 +22,12 @@
                             Padding="5"
                             WidthRequest="70"
                             HeightRequest="50"
-                            Text="SignUp"
+                            Text="Sign-In"
+                            TextTransform="Uppercase"
                             FontSize="Small"
                             TextColor="DeepPink"
-                            x:Name="BtnSignUp" 
-                            Clicked="BtnSignUp_Clicked"/>
+                            x:Name="BtnSignIn" 
+                            Clicked="BtnSignIn_Clicked"/>
                 </Grid>
                 <StackLayout Padding="10"
                              Margin="10">

@@ -12,9 +12,11 @@ namespace MobileProject20210635
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class HomePage : TabbedPage
     {
+     
         public HomePage()
         {
             InitializeComponent();
+      
         }
     }
 }

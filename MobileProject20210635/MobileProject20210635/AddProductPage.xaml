@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MobileProject20210635.ModelsViews"
+             x:Class="MobileProject20210635.AddProductPage">
+    <ContentPage.BindingContext>
+        <local:AddOrEditProductViewModel/>
+    </ContentPage.BindingContext>
+            <ContentPage.Content>
+        <StackLayout Padding="10"
+                   
+                     BackgroundColor="Gray">
+            <Label Grid.Column="1"
+                       TextColor="White"
+                       Text="Add New Cake"
+                       FontSize="24"
+                       HorizontalOptions="CenterAndExpand"
+                       Margin="20" />
+            <Entry Placeholder="Product Name"
+                   Text="{Binding Product.ProductName}"
+                      PlaceholderColor="LightGray"
+                      TextColor="White"
+                      x:Name="EntryProduct"
+                      Keyboard="Default"/>
+            <Entry Placeholder="Price"
+                   Text="{Binding Product.ProductPrice}"
+                     PlaceholderColor="Transparent"
+                     TextColor="DodgerBlue"
+                     x:Name="EntryPrice"
+                     Keyboard="Numeric" />
+            <Entry Placeholder="Image Url"
+                     Text="{Binding Product.ProductImage}"
+                     PlaceholderColor="LightGray"
+                     TextColor="White"
+                     x:Name="EntryImageUrl"
+                     Keyboard="Default" />
+
+            <Button Text="Save Product"
+                    BackgroundColor="DeepPink"  
+                    CornerRadius="50"
+                    Padding="15"
+                    Margin="15"
+                    FontSize="Medium"
+                    TextColor="white"
+                    x:Name="BtnSave"
+                    Clicked="BtnSave_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

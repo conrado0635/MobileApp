@@ -13,8 +13,10 @@
 
     <!--Pages can be added as references or inline-->
 
-  <local:ProductPage >
-  </local:ProductPage >
+    <local:ProductPage >
+    </local:ProductPage >
+    <local:ProductSettings>
+    </local:ProductSettings>
     <local:MyAccountPage>
     </local:MyAccountPage>
     <local:ShippingPage>

@@ -19,16 +19,11 @@
                     <ListView.ItemTemplate>
                       <DataTemplate>
                         <ViewCell >
-                            <Grid Padding="0"
-                                  Margin="0">
+                            <Grid>
                                 <Frame CornerRadius="5"
                                        Margin="5"
-                                       Padding="5"
-                                     
                                        HasShadow="True">
-                                    <Grid RowSpacing="10"
-                                          ColumnSpacing="5"
-                                       
+                                    <Grid RowSpacing="8"
                                           VerticalOptions="Center"
                                           HorizontalOptions="Center">
                                         <Grid.RowDefinitions>
@@ -36,8 +31,8 @@
                                     
                                         </Grid.RowDefinitions>
                                         <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="Auto"/>
-                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="230"/>
+                                            <ColumnDefinition Width="130"/>
 
                                         </Grid.ColumnDefinitions>
                                        
@@ -45,19 +40,22 @@
                                                    WidthRequest="250"
                                                    HeightRequest="100"
                                                    HorizontalOptions="Fill"
-                                                   Aspect="AspectFill"></Image>
+                                                   Aspect="AspectFill"
+                                                 ></Image>
 
                                             <StackLayout Grid.Column="1" 
-                                                         Background="HotPink"
+                                                         BackgroundColor="HotPink"
                                                          Padding="5"
-                                                         Margin="5"
-                                                         
-   
                                                          HorizontalOptions="Center"
                                                          VerticalOptions="Center">
-                                                <StackLayout>
-                                                    <Label Margin="5,0,0,0" Text="{Binding ProductName}" TextColor="FloralWhite" FontSize="18"></Label>
-                                                    <Label Margin="5,0,0,0" Text="{Binding ProductPrice}" TextColor="Yellow"></Label>
+                                                <StackLayout FlowDirection="LeftToRight">
+                                                    <Label Padding="5" 
+                                                           Text="{Binding ProductName}" 
+                                                           TextColor="FloralWhite" 
+                                                           FontSize="18"></Label>
+                                                    <Label Padding="5" 
+                                                           Text="{Binding ProductPrice,StringFormat='{}{0:c}'}" 
+                                                           TextColor="Yellow"></Label>
 
                                                 </StackLayout>
 
@@ -65,36 +63,16 @@
                                                         HorizontalOptions="Center"
                                                         BackgroundColor="ForestGreen"  
                                                         CornerRadius="5"
-                                                        HeightRequest="35"
-                                                        WidthRequest="120"
+                                                        HeightRequest="65"
+                                                        WidthRequest="130"
                                                         FontSize="14"
+                                                        Padding="5"
+                                                        Margin="5"
+ 
                                                         TextColor="White"
                                                         x:Name="BtnBuy"
                                                         Clicked="BtnBuy_Clicked"/>
-                                                <StackLayout Padding="10"
-                                                             
-                                                          
-                                                             Orientation="Horizontal">
-                                                <ImageButton Source="delete.png"
-                                                             WidthRequest="40"
-                                                             HeightRequest="38"
-                                                             Margin="5"
-                                                             BackgroundColor="DeepPink"
-                                                             x:Name="btnDelete"
-                                                             Clicked="btnDelete_Clicked"
-                                                     
-                                                             ></ImageButton>
-                                                <ImageButton Source="edit.png"
-                                                             WidthRequest="40"
-                                                             HeightRequest="38"
-                                                            Padding="5"
-                                                             Margin="5"
-                                                             BackgroundColor="DeepPink"
-                                                             x:Name="btnEdit"
-                                                             Clicked="btnEdit_Clicked"
-                                                             ></ImageButton>
-
-                                            </StackLayout>
+                                     
 
                                             </StackLayout>
 
@@ -113,6 +91,7 @@
                                TextColor="White"
                                HorizontalOptions="Center"
                                Padding="20"></Label>
+                
                     </StackLayout>
                 </ListView.Header>
             </ListView>

@@ -114,7 +114,7 @@
     <AndroidResource Include="Resources\drawable\baseline_call.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\baseline_settings.png" />
+    <AndroidResource Include="Resources\drawable\product_settings.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\cake1.jpg" />

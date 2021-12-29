@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MobileProject20210635"
+             x:Class="MobileProject20210635.ProductSettings"
+             Title="Product Setup"
+             IconImageSource="product_settings.png">
+    <ContentPage.BindingContext>
+        <local:ProductViewClass/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+
+        <StackLayout>
+            <ListView x:Name="lvProductList"
+                      ItemsSource="{Binding ProductList}"
+                      SeparatorColor="Aqua"
+                      SeparatorVisibility="None"
+                      HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell >
+                            <Grid Padding="0"
+                                  Margin="0">
+                                <Frame CornerRadius="5"
+                                       Margin="5"
+                                       Padding="5"
+                                     
+                                       HasShadow="True">
+                                    <Grid RowSpacing="10"
+                                          ColumnSpacing="5"
+                                          VerticalOptions="Center"
+                                          HorizontalOptions="Center">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="180"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <StackLayout WidthRequest="250"
+                                                   HeightRequest="100">
+                                            <Label Text="{Binding ProductId}"
+                                                   FontSize="20"
+                                                   TextColor="DeepPink"
+                                                   >
+                                                
+                                            </Label>
+                                            <Entry Text="{Binding ProductName}"
+                                                   TextColor="Gray"
+                                                   MaxLength="16"
+                                                   Keyboard="Default"
+                                                  ></Entry>
+                                            <Entry Text="{Binding ProductPrice,StringFormat='{}{0:c}'}"
+                                                   TextColor="gray"
+                                                   Keyboard="Numeric"
+                                                   ></Entry>
+                                            <Entry Text="{Binding ProductImage}"
+                                                   TextColor="gray"
+                                                   Keyboard="Default"
+                                                   ></Entry>
+
+                                        </StackLayout>
+
+                                        <StackLayout Grid.Column="1"  
+                                                     Background="Gray"
+                                                     Padding="5"
+                                                     HorizontalOptions="Center"
+                                                     VerticalOptions="Center">
+
+                                            <Image Source="edit.png"
+                                                             WidthRequest="40"
+                                                             HeightRequest="38"
+                                                             Margin="5"
+                                                             BackgroundColor="DeepPink">
+                                                <Image.GestureRecognizers>
+                                                    <TapGestureRecognizer
+                                                        Tapped="TapGestureRecognizer_Tapped_Edit"
+                                                        CommandParameter="{Binding ProductId}"/>
+                                                </Image.GestureRecognizers>
+                                             </Image>
+                                            <Image Source="delete.png"
+                                                             WidthRequest="40"
+                                                             HeightRequest="38"
+                                                             Margin="5"
+                                                             BackgroundColor="DeepPink">
+                                                <Image.GestureRecognizers>
+                                                    <TapGestureRecognizer
+                                                        Tapped="TapGestureRecognizer_Tapped_Delete"
+                                                        CommandParameter="{Binding ProductId}"/>
+                                                </Image.GestureRecognizers>
+                                            </Image>
+
+
+
+                                        </StackLayout>
+
+                                    </Grid>
+
+
+                                </Frame>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.Header>
+                    <StackLayout BackgroundColor="Gray">
+                        <Button Text="Add New Product"
+                        CornerRadius="20"
+                        Padding="15"
+                        Margin="15"
+                        FontSize="Medium"
+                        BackgroundColor="DeepPink"
+                        TextColor="White"
+                        x:Name="BtnAdd" 
+                        Clicked="BtnAdd_Clicked"/>
+                    </StackLayout>
+                </ListView.Header>
+            </ListView>
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>

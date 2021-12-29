@@ -22,15 +22,6 @@ namespace MobileProject20210635
 
         }
 
-        private void btnDelete_Clicked(object sender, EventArgs e)
-        {
 
-
-        }
-
-        private void btnEdit_Clicked(object sender, EventArgs e)
-        {
-
-        }
     }
 }

@@ -21,11 +21,7 @@
                        TextColor="DeepPink"
                        x:Name="EntryName"
                        Keyboard="Text" />
-                <Entry Placeholder="Department"
-                       PlaceholderColor="white"
-                       TextColor="DeepPink"
-                       x:Name="EntryDepartment"
-                       Keyboard="Text" />
+
                 <Entry Placeholder="Email"
                        PlaceholderColor="white"
                        TextColor="DeepPink"
@@ -37,6 +33,16 @@
                        IsPassword="True"
                        x:Name="EntryPassword"
                        Keyboard="Default" />
+                <Entry Placeholder=" Department"
+                       PlaceholderColor="white"
+                       TextColor="DeepPink"
+                       x:Name="EntryDepartment"
+                       Keyboard="Text" />
+                <Entry Placeholder=" Home Address"
+                       PlaceholderColor="white"
+                       TextColor="DeepPink"
+                       x:Name="EntryAddress"
+                       Keyboard="Text" />
                 <Button Text="Next"
                         CornerRadius="20"
                         Padding="15"
