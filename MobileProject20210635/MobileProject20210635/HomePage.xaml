@@ -15,8 +15,8 @@
 
     <local:ProductPage >
     </local:ProductPage >
-    <local:ProductSettings>
-    </local:ProductSettings>
+    <local:SettingPage>
+    </local:SettingPage>
     <local:MyAccountPage>
     </local:MyAccountPage>
     <local:ShippingPage>

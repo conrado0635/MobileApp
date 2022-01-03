@@ -14,14 +14,14 @@ namespace MobileProject20210635
     public partial class AddProductPage : ContentPage
     {
         public AddProductPage(Models.ProductInfo productInfo = null)
-         /*   public AddProductPage(Models.ProductInfo productInfo = null)*/
+
 
         {
             InitializeComponent();
-/*            if (productInfo != null)
+            if (productInfo != null)
             {
                 ((AddOrEditProductViewModel)BindingContext).Product = productInfo;
-            }*/
+            }
         }
 
         private async void BtnSave_Clicked(object sender, EventArgs e)

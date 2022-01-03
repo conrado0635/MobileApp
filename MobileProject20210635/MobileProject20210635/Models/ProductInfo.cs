@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,7 +7,7 @@ namespace MobileProject20210635.Models
 {
     public class ProductInfo
     {
-
+        [PrimaryKey] [AutoIncrement]
         public int ProductId { get; set; }
         public string price;
         public string ProductName

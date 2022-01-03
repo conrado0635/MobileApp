@@ -10,8 +10,11 @@ namespace MobileProject20210635.Services
     {
 
         Task AddUser(string name, string email,string address,string department,string password);
+        Task UpdateUser(Users user);
         Task<IEnumerable<Users>> GetUser();
-        Task<Users> GetUser(string email,string password);
+        Task<Users> GetUser(int id);
+        Task<Users> GetOneUser(string email, string password);
         Task RemoveUser(int id);
+        /*Task GetClient();*/
     }
 }

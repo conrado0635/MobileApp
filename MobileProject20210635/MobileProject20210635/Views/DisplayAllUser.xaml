@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:MobileProject20210635.ModelsViews"
+             xmlns:model="clr-namespace:MobileProject20210635.Models"          
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="MobileProject20210635.Views.DisplayAllUser"
+             x:DataType="viewmodels:UserViewModel"
+             x:Name="AllUserPage">
+    <ContentPage.BindingContext>
+        <viewmodels:UserViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+
+        <StackLayout >
+                <StackLayout Padding="5"
+                             BackgroundColor="LightGray">
+                    <Grid BackgroundColor="HotPink" 
+                          Margin="0,0,0,10"
+                          Padding="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="30" />
+                        </Grid.ColumnDefinitions>
+
+                        <ImageButton Grid.Column="0"
+                                Padding="5"
+                                Margin="5"
+                                BackgroundColor="DeepPink"
+                                WidthRequest="60"
+                                HeightRequest="40"
+                                Source="arrow_back.png"
+                                x:Name="BtnBack" 
+                                Clicked="BtnBack_Clicked"/>
+                        <Label Grid.Column="1" 
+                                Text="All User"    
+                                WidthRequest="150"
+                                HeightRequest="70"
+                                 Padding="10"
+                                 HorizontalOptions="Center"
+                                 FontSize="20"
+                                
+                                 TextColor="White"/>
+                    </Grid>
+                 </StackLayout>
+                 <StackLayout>
+                <ListView x:Name="lvUserList"
+                                  ItemsSource="{Binding UsersList}"
+                                  SeparatorColor="Aqua"
+                                  SeparatorVisibility="Default"
+                                  SelectionMode="Single"
+                                  HasUnevenRows="True">
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="model:Users">
+                            <ViewCell >
+                                <ViewCell.ContextActions>
+                                    <MenuItem
+                                             Command="{Binding Source={x:Reference AllUserPage}, Path=BindingContext.AddCommand}"
+                                            CommandParameter="{Binding .}"
+                                            IsDestructive="True"
+                                            Text="Add"/>
+                                </ViewCell.ContextActions>
+                                <Grid Padding="0"
+                                                  Margin="5">
+                                    <Frame CornerRadius="5"
+                                                       Margin="5"
+                                                       Padding="5"
+                                     
+                                                       HasShadow="True">
+                                        <Grid RowSpacing="10"
+                                                          ColumnSpacing="5"
+                                                          VerticalOptions="Center"
+                                                          HorizontalOptions="Center">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="180"/>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <StackLayout WidthRequest="250"
+                                                                   HeightRequest="100" >
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Label Text="{Binding Id}"
+                                                                   FontSize="12"
+                                                                       Padding="5"
+                                                                   TextColor="DeepPink"
+                                                                   x:Name="labelId">
+                                                    </Label>
+                                                    <Label Text="{Binding Name}"
+                                                                   FontSize="16"
+                                                                   Padding="1"
+                                                                   TextColor="DeepPink"
+                                                                   x:Name="labelName">
+                                                    </Label>
+                                                </StackLayout>
+
+                                                <Label Text="{Binding EmailAddress}"
+                                                                   TextColor="Gray"                                   
+                                                                   FontSize="Small"
+                                                                   Padding="5"
+                                                                  ></Label>
+                                                <Label Text="{Binding HomeAddress}"
+                                                                   TextColor="gray"
+                                                                   Padding="5"
+                                                                   FontSize="Small" 
+                                                                   ></Label>
+                                                <Label Text="{Binding Phone}"
+                                                                   TextColor="gray"
+                                                                   Padding="5"                     
+                                                                   FontSize="Small"
+                                                                   ></Label>
+                                                <Label Text="{Binding Password}"
+                                                                   Padding="5"
+                                                                   IsVisible="False"
+                                                                   ></Label>
+                                            </StackLayout>
+
+                                            <StackLayout Grid.Column="1"  
+                                                                     Background="Gray"
+                                                                     Padding="5"
+                                                                     HorizontalOptions="Center"
+                                                                     VerticalOptions="Center">
+
+                                                <Image Source="edit.png"
+                                                                             WidthRequest="40"
+                                                                             HeightRequest="38"
+                                                                             Margin="5"
+                                                                             BackgroundColor="DeepPink">
+                                                    <Image.GestureRecognizers>
+                                                        <TapGestureRecognizer
+                                                                        Tapped="TapGestureRecognizer_Tapped_Edit"
+                                                                        CommandParameter="{Binding Id}"/>
+                                                    </Image.GestureRecognizers>
+                                                </Image>
+                                                <Image Source="delete.png"
+                                                                             WidthRequest="40"
+                                                                             HeightRequest="38"
+                                                                             Margin="5"
+                                                                             BackgroundColor="DeepPink">
+                                                    <Image.GestureRecognizers>
+                                                        <TapGestureRecognizer
+                                                                        Command="{Binding Source={x:Reference AllUserPage}, Path=BindingContext.RemoveCommand}"
+                                                                        CommandParameter="{Binding .}"/>
+                                                    </Image.GestureRecognizers>
+                                                </Image>
+                                            </StackLayout>
+
+                                        </Grid>
+                                    </Frame>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:MobileProject20210635.ModelsViews"
+             xmlns:model="clr-namespace:MobileProject20210635.Models"          
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="MobileProject20210635.Views.DisplayAllClient"
+             x:DataType="viewmodels:ClientViewModel"
+             x:Name="AllClientPage">
+    <ContentPage.BindingContext>
+        <viewmodels:ClientViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout >
+            <StackLayout Padding="5"
+                         BackgroundColor="LightGray">
+                <Grid BackgroundColor="HotPink" 
+                          Margin="0,0,0,10"
+                          Padding="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="80" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="80" />
+                    </Grid.ColumnDefinitions>
+
+                    <ImageButton Grid.Column="0"
+                                Padding="5"
+                                Margin="5"
+                                BackgroundColor="DeepPink"
+                                WidthRequest="50"
+                                HeightRequest="40"
+                                Source="arrow_back.png"
+                                x:Name="BtnBack" 
+                                Clicked="BtnBack_Clicked"/>
+                    <Label Grid.Column="1" 
+                           Text="All Client"          
+                           HeightRequest="70"
+                           Padding="15"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           FontSize="20"
+                           TextColor="White"/>
+
+                    <Image Grid.Column="2"       
+                           Margin="5"
+                           Source="add.png"
+                           WidthRequest="50"
+                           HeightRequest="40"
+                           BackgroundColor="DeepPink">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer
+                               Command="{Binding Source={x:Reference AllClientPage}, Path=BindingContext.AddCommand}"
+                               CommandParameter="{Binding .}"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+
+                </Grid>
+            </StackLayout>
+            <StackLayout>
+
+                <ListView x:Name="lvClientList"
+                                  ItemsSource="{Binding ClientList}"
+                                  SeparatorColor="Aqua"
+                                  SeparatorVisibility="Default"
+                                  SelectionMode="Single"
+                                  HasUnevenRows="True">
+
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="model:ClientInfo">
+                            <ViewCell >
+                                <ViewCell.ContextActions>
+                                    <MenuItem
+                                      
+                                            Command="{Binding Source={x:Reference AllClientPage}, Path=BindingContext.AddCommand}"
+                                            CommandParameter="{Binding .}"
+                                            IsDestructive="True"
+                                            Text="Add"/>
+                                </ViewCell.ContextActions>
+                                <Grid Padding="0"
+                                                  Margin="5">
+                                    <Frame CornerRadius="5"
+                                                       Margin="5"
+                                                       Padding="5"
+                                                       HasShadow="True">
+                                        <Grid RowSpacing="10"
+                                                          ColumnSpacing="5"
+                                                          VerticalOptions="Center"
+                                                          HorizontalOptions="Center">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="180"/>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="280"/>
+                                                <ColumnDefinition Width="80"/>
+                                            </Grid.ColumnDefinitions>
+                                            <StackLayout WidthRequest="250"
+                                                                   HeightRequest="100" >
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Label Text="{Binding ClientId}"
+                                                                   FontSize="12"
+                                                                   Padding="5"
+                                                                   TextColor="DeepPink"
+                                                                   x:Name="labelId">
+                                                    </Label>
+                                                    <Label Text="{Binding ClientName}"
+                                                                   FontSize="16"
+                                                                   Padding="1"
+                                                                   TextColor="DeepPink"
+                                                                   x:Name="labelName">
+                                                    </Label>
+                                           
+                                                </StackLayout>
+
+                                                <Label Text="{Binding ClientEmail}"
+                                                                   TextColor="Gray"                                   
+                                                                   FontSize="Small"
+                                                                   Padding="5"
+                                                                  ></Label>
+                                                <Label Text="{Binding ClientAddress}"
+                                                                   TextColor="gray"
+                                                                   Padding="5"
+                                                                   FontSize="Small" 
+                                                                   ></Label>
+                                                <Label Text="{Binding ClientPhone}"
+                                                                   TextColor="gray"
+                                                                   Padding="5"                     
+                                                                   FontSize="Small"
+                                                                   ></Label>
+                                                <Label Text="{Binding RegisteredDate}"
+                                                                   TextColor="gray"
+                                                                   Padding="5"                     
+                                                                   FontSize="Small"
+                                                                   ></Label>
+                                            </StackLayout>
+
+                                            <StackLayout Grid.Column="1"  
+                                                                     Background="Gray"
+                                                                     Padding="5"
+                                                                     HorizontalOptions="Center"
+                                                                     VerticalOptions="Center">
+                                                <Image Source="edit.png"
+                                                                    WidthRequest="40"
+                                                                    HeightRequest="38"
+                                                                    Margin="5"
+                                                                    BackgroundColor="DeepPink">
+                                                    <Image.GestureRecognizers>
+                                                        <TapGestureRecognizer
+                                                                        Tapped="TapGestureRecognizer_Tapped_Edit"
+                                                                        CommandParameter="{Binding ClientId}"/>
+                                                    </Image.GestureRecognizers>
+                                                </Image>
+                                                <Image Source="delete.png"
+                                                                    WidthRequest="40"
+                                                                    HeightRequest="38"
+                                                                    Margin="5"
+                                                                    BackgroundColor="DeepPink">
+                                                    <Image.GestureRecognizers>
+                                                        <TapGestureRecognizer
+                                                                        Command="{Binding Source={x:Reference AllClientPage}, Path=BindingContext.RemoveCommand}"
+                                                                        CommandParameter="{Binding .}"/>
+                                                    </Image.GestureRecognizers>
+                                                </Image>
+                                            </StackLayout>
+
+                                        </Grid>
+                                    </Frame>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+
+                </ListView>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            x:Class="MobileProject20210635.Views.EditClientPage"
+            xmlns:local="clr-namespace:MobileProject20210635.ModelsViews"
+            Title="{Binding Client.ClientName}"
+            BackgroundColor="LightGreen"
+            Shell.PresentationMode="Modal">
+    <ContentPage.BindingContext>
+        <local:ClientEditViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout Padding="10"  
+                     BackgroundColor="Gray">
+            <Label Grid.Column="1"
+                       TextColor="White"
+                       Text="Edit User Data"
+                       FontSize="24"
+                       HorizontalOptions="CenterAndExpand"
+                       Margin="5" />
+            <Entry Placeholder="Name"
+                   Text="{Binding Client.ClientName}"
+                      PlaceholderColor="LightGray"
+                      TextColor="White"
+                      x:Name="EntryName"
+                      Keyboard="Default"/>
+            <Entry Placeholder="Email"
+                     Text="{Binding Client.ClientEmail,Mode=OneWay}"
+                     PlaceholderColor="Transparent"
+                     TextColor="white"
+                     x:Name="EntryEmail"
+                      />
+            <Entry Placeholder="Home Address"
+                     Text="{Binding Client.Address}"
+                     PlaceholderColor="LightGray"
+                     TextColor="White"
+                     x:Name="EntryHome"
+                     Keyboard="Default" />
+            <Entry Placeholder="Phone Number"
+                     Text="{Binding Client.ClientPhone}"
+                     PlaceholderColor="LightGray"
+                     TextColor="White"
+                     x:Name="EntryPhone"
+                     Keyboard="Default" />
+            <Entry Placeholder="Register Date"
+                   Text="{Binding Client.RegisteredDate,Mode=OneWay}"
+                   x:Name="EntryRegister"
+                   FontSize="18"
+                   TextColor="White"
+                   IsReadOnly="True"/>
+           
+            <DatePicker HorizontalOptions="Fill"
+                    x:Name="dateRegister"
+                    Format="D"
+                    Margin="30, 0, 0, 30"
+                    Date="{Binding Client.RegisteredDate}"
+                    DateSelected="dateRegister_DateSelected"/>
+
+
+            <Entry Text="{Binding Client.ClientId}"
+                     x:Name="EntryId"
+                     IsVisible="False" />
+            <Button Text="Save "
+                    BackgroundColor="DeepPink"  
+                    CornerRadius="50"
+                    Padding="15"
+                    Margin="15"
+                    FontSize="Medium"
+                    TextColor="white"
+                    x:Name="BtnSave"
+                    Clicked="BtnSave_Clicked"/>
+                <Button Text="Cancel "
+                    BackgroundColor="DeepPink"  
+                    CornerRadius="50"
+                    Padding="15"
+                    Margin="15"
+                    FontSize="Medium"
+                    TextColor="white"
+                    x:Name="BtnCancel"
+                    Clicked="BtnCancel_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
+    

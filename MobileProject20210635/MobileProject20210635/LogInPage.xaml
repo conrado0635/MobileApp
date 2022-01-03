@@ -41,13 +41,15 @@
                       PlaceholderColor="White"
                       TextColor="DeepPink"
                       x:Name="EntryEmail"
-                      Keyboard="Email" />
+                      Keyboard="Email"
+                      ClearButtonVisibility="WhileEditing"/>
                     <Entry Placeholder="Password"
                      PlaceholderColor="White"
                      TextColor="DeepPink"
                      IsPassword="True"
                      x:Name="EntryPassword"
-                     Keyboard="Default" />
+                     Keyboard="Default" 
+                     ClearButtonVisibility="WhileEditing"/>
                     <Button Text="Login"
                     BackgroundColor="DeepPink"  
                     CornerRadius="50"

@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:model="clr-namespace:MobileProject20210635.Models"
              xmlns:local="clr-namespace:MobileProject20210635"
              x:Class="MobileProject20210635.ProductSettings"
              Title="Product Setup"
@@ -15,10 +16,11 @@
             <ListView x:Name="lvProductList"
                       ItemsSource="{Binding ProductList}"
                       SeparatorColor="Aqua"
-                      SeparatorVisibility="None"
+                      SeparatorVisibility="Default"
+                      SelectionMode="None"
                       HasUnevenRows="True">
                 <ListView.ItemTemplate>
-                    <DataTemplate>
+                    <DataTemplate x:DataType="model:ProductInfo">
                         <ViewCell >
                             <Grid Padding="0"
                                   Margin="0">
@@ -83,7 +85,8 @@
                                                              WidthRequest="40"
                                                              HeightRequest="38"
                                                              Margin="5"
-                                                             BackgroundColor="DeepPink">
+                                                             BackgroundColor="DeepPink"
+                                                   >
                                                 <Image.GestureRecognizers>
                                                     <TapGestureRecognizer
                                                         Tapped="TapGestureRecognizer_Tapped_Delete"

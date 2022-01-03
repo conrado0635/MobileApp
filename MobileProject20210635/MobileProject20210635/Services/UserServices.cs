@@ -1,5 +1,6 @@
 ﻿using Xamarin.Forms;
 using MobileProject20210635.Models;
+
 using SQLite;
 using System;
 using System.Collections.Generic;
@@ -12,14 +13,16 @@ using MobileProject20210635.Services;
 [assembly: Dependency(typeof(UserServices))]
 namespace MobileProject20210635.Services
 {
-   public class UserServices: IUserServices
+  public class UserServices: IUserServices
     {
         SQLiteAsyncConnection db;
-         async Task Init()
+
+      /*  public object UsersList { get; private set; }
+*/
+        async Task Init()
         {
             if (db != null)
                 return;
-
             // Get an absolute path to the database file
             var databasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "MyData.db");
 
@@ -29,7 +32,7 @@ namespace MobileProject20210635.Services
 
             Console.WriteLine("Table created!");
         }
-         public  async Task AddUser(string name,string email,string address,string department,string password)
+         public async Task AddUser(string name,string email,string address,string phone,string password)
         {
             await Init();
             var newUser = new Users
@@ -37,12 +40,18 @@ namespace MobileProject20210635.Services
                 Name = name,
                 EmailAddress = email,
                 HomeAddress = address,   
-                Department = department,
+                Phone = phone,
                 Password = password
             };
             var id = await db.InsertAsync(newUser);
             Console.WriteLine(newUser.Name + " " + "Added to database", "OK");
+        }
+        public async Task UpdateUser(Users newUser)
+        {
+            await Init();
 
+            await db.UpdateAsync(newUser);
+ 
         }
 
         public async Task RemoveUser(int id)
@@ -51,7 +60,6 @@ namespace MobileProject20210635.Services
             await db.DeleteAsync<Users>(id);
             Console.WriteLine("UserId deleted...");
         }
-
         public  async Task <IEnumerable<Users>> GetUser()
         {
             await Init();
@@ -60,13 +68,22 @@ namespace MobileProject20210635.Services
             var users = await db.Table<Users>().ToListAsync();
             return users;
         }
-
-        public async Task<Users> GetUser(string email, string password)
+        public async Task<Users> GetUser(int id)
         {
             await Init();
-            Users users =await db.Table<Users>().FirstOrDefaultAsync(x => x.EmailAddress.Equals(email) && x.Password.Equals(password));
-            return users;
+
+            var user = await db.Table<Users>()
+                .FirstOrDefaultAsync(c => c.Id == id);
+
+            return user;
         }
+        public async Task<Users> GetOneUser(string email, string password)
+        {
+            await Init();
+            Users user =await db.Table<Users>().FirstOrDefaultAsync(x => x.EmailAddress.Equals(email) && x.Password.Equals(password));
+            return user;
+        }
+
 
     }
 }

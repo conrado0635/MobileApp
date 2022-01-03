@@ -36,7 +36,7 @@ namespace MobileProject20210635
                         var db = new SQLiteConnection(_dbpath);
                         var userQuery = db.Table<Models.Users>().Where(x => x.EmailAddress.Equals(EntryEmail.Text) && x.Password.Equals(EntryPassword.Text)).FirstOrDefault();*/
             UserServices userQuery = new UserServices();
-            var query = await userQuery.GetUser(EntryEmail.Text, EntryPassword.Text);
+            var query = await userQuery.GetOneUser(EntryEmail.Text, EntryPassword.Text);
            
          
             if (query!= null)

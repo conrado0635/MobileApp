@@ -52,11 +52,11 @@
                 <BoxView HeightRequest="1"
                          BackgroundColor="Gray" />
                 <Label Margin="20,0,20,0"
-                       Text="Change Department"
+                       Text="Display User"
                        TextColor="DeepPink"
-                       FontSize="Medium">
+                       FontSize="Medium">   
                     <Label.GestureRecognizers>
-                        <TapGestureRecognizer x:Name="TapChangeDepartment" Tapped="TapChangeDepartment_Tapped" />
+                        <TapGestureRecognizer x:Name="TapDisplayAllUser" Tapped="TapDisplayAllUser_Tapped"/>
                     </Label.GestureRecognizers>
                 </Label>
                 <BoxView HeightRequest="1"

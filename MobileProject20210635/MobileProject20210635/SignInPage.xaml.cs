@@ -50,7 +50,7 @@ namespace MobileProject20210635
             await userQuery.AddUser(EntryName.Text,
                 EntryEmail.Text,
                 EntryAddress.Text,
-                EntryDepartment.Text,
+                EntryPhone.Text,
                 EntryPassword.Text);
             
 

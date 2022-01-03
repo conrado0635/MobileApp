@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileProject20210635.SettingPage"
+             Title="Setting"
+             IconImageSource="product_settings.png">
+    <ContentPage.Content>
+        <ScrollView BackgroundColor="LightPink">
+            <StackLayout VerticalOptions="Center"
+                         Spacing="10"
+                         Margin="10">
+               <Label Text="This Page is for Employee Page Only"
+                      Padding="20"
+                      FontSize="20"
+                      TextColor="DeepPink"/>
+
+                <Button Text="All Product Page"
+                        CornerRadius="20"
+                        Padding="15"
+                        Margin="15"
+                        FontSize="Medium"
+                        TextColor="White"
+                        BackgroundColor="DeepPink"
+                        x:Name="BtnAllProductPage" Clicked="BtnAllProductPage_Clicked"/>
+
+                <Button Text="All User Page"
+                        CornerRadius="20"
+                        Padding="15"
+                        Margin="15"
+                        FontSize="Medium"
+                        BackgroundColor="DeepPink"
+                        TextColor="White"
+                        x:Name="BtnAllUserPage" 
+                        Clicked="BtnAllUserPage_Clicked"
+                        />
+                <Button Text="All Client Page"
+                        CornerRadius="20"
+                        Padding="15"
+                        Margin="15"
+                        FontSize="Medium"
+                        TextColor="White"
+                        BackgroundColor="DeepPink"
+                        x:Name="BtnAllClientPage" Clicked="BtnAllClientPage_Clicked"/>
+                <Button Text="Back Home"
+                        CornerRadius="20"
+                        Padding="15"
+                        Margin="15"
+                        FontSize="Medium"
+                        BackgroundColor="DeepPink"
+                        TextColor="White"
+                        x:Name="BtnBackHome" 
+                        Clicked="BtnBackHome_Clicked"
+                        />
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
