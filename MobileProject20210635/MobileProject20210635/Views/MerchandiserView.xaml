@@ -4,11 +4,12 @@
              xmlns:viewmodels="clr-namespace:MobileProject20210635.ModelsViews"
              xmlns:model="clr-namespace:MobileProject20210635.Models"          
              xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
-             x:Class="MobileProject20210635.Views.DisplayAllClient"
-             x:DataType="viewmodels:ClientViewModel"
-             x:Name="AllClientPage">
+             x:Class="MobileProject20210635.Views.MerchandiserView"
+             x:DataType="viewmodels:TicketViewModel"
+             x:Name="AllMerchandiser"
+             Title="{Binding Title}">
     <ContentPage.BindingContext>
-        <viewmodels:ClientViewModel/>
+        <viewmodels:TicketViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout >
@@ -33,7 +34,7 @@
                                 x:Name="BtnBack" 
                                 Clicked="BtnBack_Clicked"/>
                     <Label Grid.Column="1" 
-                           Text="All Client"          
+                           Text="Ticket"          
                            HeightRequest="70"
                            Padding="15"
                            HorizontalOptions="Center"
@@ -49,7 +50,7 @@
                            BackgroundColor="DeepPink">
                         <Image.GestureRecognizers>
                             <TapGestureRecognizer
-                               Command="{Binding Source={x:Reference AllClientPage}, Path=BindingContext.AddCommand}"
+                               Command="{Binding Source={x:Reference AllMerchandiser}, Path=BindingContext.AddCommand}"
                                CommandParameter="{Binding .}"/>
                         </Image.GestureRecognizers>
                     </Image>
@@ -58,17 +59,17 @@
             </StackLayout>
             <StackLayout>
 
-                <ListView x:Name="lvClientList"
-                                  ItemsSource="{Binding ClientList}"
+                <ListView x:Name="lvTicketList"
+                                  ItemsSource="{Binding TicketList}"
                                   SeparatorColor="Aqua"
                                   SeparatorVisibility="Default"
                                   SelectionMode="Single"
                                   HasUnevenRows="True">
 
                     <ListView.ItemTemplate>
-                        <DataTemplate x:DataType="model:ClientInfo">
+                        <DataTemplate x:DataType="model:TicketInfo">
                             <ViewCell >
- 
+
                                 <Grid Padding="0"
                                                   Margin="5">
                                     <Frame CornerRadius="5"
@@ -89,37 +90,52 @@
                                             <StackLayout WidthRequest="250"
                                                                    HeightRequest="100" >
                                                 <StackLayout Orientation="Horizontal">
-                                                    <Label Text="{Binding ClientId}"
+                                                    <Label Text="{Binding TicketId}"
                                                                    FontSize="12"
                                                                    Padding="5"
                                                                    TextColor="DeepPink"
                                                                    x:Name="labelId">
                                                     </Label>
-                                                    <Label Text="{Binding ClientName}"
+                                                    <Label Text="{Binding TicketName}"
                                                                    FontSize="16"
                                                                    Padding="1"
                                                                    TextColor="DeepPink"
                                                                    x:Name="labelName">
                                                     </Label>
-                                           
-                                                </StackLayout>
 
-                                                <Label Text="{Binding ClientEmail}"
+                                                </StackLayout>
+                                                <Label Text=" Description" FontSize="12" TextColor="LightGray"></Label>
+                                                <Label Text="{Binding TicketDescription}"
                                                                    TextColor="Gray"                                   
                                                                    FontSize="Small"
                                                                    Padding="5"
                                                                   ></Label>
-                                                <Label Text="{Binding ClientAddress}"
+                                                <Label Text="{Binding TicketComment}"
                                                                    TextColor="gray"
                                                                    Padding="5"
                                                                    FontSize="Small" 
                                                                    ></Label>
-                                                <Label Text="{Binding ClientPhone}"
+                                                <Label Text="{Binding TicketStatus}"
                                                                    TextColor="gray"
                                                                    Padding="5"                     
                                                                    FontSize="Small"
                                                                    ></Label>
-                                                <Label Text="{Binding RegisteredDate}"
+                                                <Label Text="{Binding StartDate}"
+                                                                   TextColor="gray"
+                                                                   Padding="5"                     
+                                                                   FontSize="Small"
+                                                                   ></Label>
+                                                <Label Text="{Binding FinishDate}"
+                                                                   TextColor="gray"
+                                                                   Padding="5"                     
+                                                                   FontSize="Small"
+                                                                   ></Label>
+                                                <Label Text="{Binding StartTime}"
+                                                                   TextColor="gray"
+                                                                   Padding="5"                     
+                                                                   FontSize="Small"
+                                                                   ></Label>
+                                                <Label Text="{Binding FinishTime}"
                                                                    TextColor="gray"
                                                                    Padding="5"                     
                                                                    FontSize="Small"
@@ -138,8 +154,8 @@
                                                                     BackgroundColor="DeepPink">
                                                     <Image.GestureRecognizers>
                                                         <TapGestureRecognizer
-                                                                        Tapped="TapGestureRecognizer_Tapped_Edit"
-                                                                        CommandParameter="{Binding ClientId}"/>
+                                                                        Tapped="TapGestureRecognizer_Tapped"
+                                                                        CommandParameter="{Binding TicketId}"/>
                                                     </Image.GestureRecognizers>
                                                 </Image>
                                                 <Image Source="delete.png"
@@ -149,7 +165,7 @@
                                                                     BackgroundColor="DeepPink">
                                                     <Image.GestureRecognizers>
                                                         <TapGestureRecognizer
-                                                                        Command="{Binding Source={x:Reference AllClientPage}, Path=BindingContext.RemoveCommand}"
+                                                                        Command="{Binding Source={x:Reference AllMerchandiser}, Path=BindingContext.RemoveCommand}"
                                                                         CommandParameter="{Binding .}"/>
                                                     </Image.GestureRecognizers>
                                                 </Image>

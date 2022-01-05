@@ -24,7 +24,7 @@ namespace MobileProject20210635.Services
             if (db != null)
                 return;
             // Get an absolute path to the database file
-            var databasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "MyData.db");
+            var databasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "MyData1.db");
 
              db = new SQLiteAsyncConnection(databasePath);
 
@@ -32,7 +32,7 @@ namespace MobileProject20210635.Services
 
             Console.WriteLine("Table created!");
         }
-         public async Task AddUser(string name,string email,string address,string phone,string password)
+         public async Task AddUser(string name,string email,string address,string phone,string password,DateTime signIn,DateTime signOut, string userType)
         {
             await Init();
             var newUser = new Users
@@ -41,7 +41,10 @@ namespace MobileProject20210635.Services
                 EmailAddress = email,
                 HomeAddress = address,   
                 Phone = phone,
-                Password = password
+                Password = password,
+                SignInDate=signIn,
+                SignOutDate=signOut,
+                UserType=userType
             };
             var id = await db.InsertAsync(newUser);
             Console.WriteLine(newUser.Name + " " + "Added to database", "OK");

@@ -10,45 +10,91 @@
         <local:UserEditViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        <StackLayout Padding="10"  
+        <ScrollView>
+            <StackLayout Padding="10"  
                      BackgroundColor="Gray">
-            <Label Grid.Column="1"
+                <Label Grid.Column="1"
                        TextColor="White"
                        Text="Edit User Data"
                        FontSize="24"
                        HorizontalOptions="CenterAndExpand"
                        Margin="5" />
-            <Entry Placeholder="Name"
+                <Label Text=" Name:" TextColor="DodgerBlue" FontSize="14"/>
+                <Entry Placeholder="Name"
                    Text="{Binding User.Name}"
                       PlaceholderColor="LightGray"
                       TextColor="White"
                       x:Name="EntryName"
-                      Keyboard="Default"/>
-            <Entry Placeholder="Email"
+                      ClearButtonVisibility="WhileEditing"
+                      Keyboard="Text"/>
+                <Label Text="Email:" TextColor="DodgerBlue" FontSize="14"/>
+                <Entry Placeholder="Email"
                      Text="{Binding User.EmailAddress,Mode=OneWay}"
-                     PlaceholderColor="Transparent"
+                     PlaceholderColor="LightGray"
                      TextColor="white"
-                     x:Name="EntryEmail"
-                      />
-            <Entry Placeholder="Home Address"
+                     ClearButtonVisibility="WhileEditing"
+                     x:Name="EntryEmail"/>
+                <Label Text=" Address:" TextColor="DodgerBlue" FontSize="14"/>
+                <Entry Placeholder="Home Address"
                      Text="{Binding User.HomeAddress}"
                      PlaceholderColor="LightGray"
                      TextColor="White"
                      x:Name="EntryHome"
-                     Keyboard="Default" />
-            <Entry Placeholder="Phone Number"
+                     ClearButtonVisibility="WhileEditing"
+                     Keyboard="Text" />
+                <Label Text=" Phone:" TextColor="DodgerBlue" FontSize="14"/>
+                <Entry Placeholder="Phone Number"
                      Text="{Binding User.Phone}"
                      PlaceholderColor="LightGray"
                      TextColor="White"
                      x:Name="EntryPhone"
-                     Keyboard="Default" />
-            <Entry Text="{Binding User.Password}"                
+                     ClearButtonVisibility="WhileEditing"
+                     Keyboard="Text"/>
+
+                <Label Text=" Type of User:" TextColor="DodgerBlue" FontSize="14"/>
+                <Picker x:Name="picker"
+                        Title="Select Type of User"
+                        TitleColor="LightGray"
+                        SelectedIndexChanged="picker_SelectedIndexChanged">
+                    <Picker.ItemsSource >
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>User</x:String>
+                            <x:String>Merchandiser</x:String>
+                            <x:String>Supervisor</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+                <Label Text="Start Date:"
+                   FontSize="12"
+                   TextColor="LightGray"
+                   Padding="0,10,0,0">
+                </Label>
+                <DatePicker HorizontalOptions="Fill"
+                    x:Name="dateStart"
+                    Format="dddd, dd MMMM yyyy"
+                    Margin="30, 0, 0, 30"
+                    MinimumDate="2000-01-01"        
+                    Date="{Binding User.SignInDate}"/>
+
+                <Label Text="Finished Date:"
+                   FontSize="12"
+                   TextColor="LightGray">
+                </Label>
+                <DatePicker HorizontalOptions="Fill"
+                    x:Name="dateFinish"
+                    Format="dddd, dd MMMM yyyy"
+                    Margin="30, 0, 0, 30"
+                    MinimumDate="2000-01-01" 
+                    Date="{Binding User.SignOutDate}"/>
+
+                <Entry Text="{Binding User.Password}"                
                      x:Name="EntryPassword"
                      IsVisible="False" />
-            <Entry Text="{Binding User.Id}"
+                
+                <Entry Text="{Binding User.Id}"
                      x:Name="EntryId"
                      IsVisible="False" />
-            <Button Text="Save "
+                <Button Text="Save "
                     BackgroundColor="DeepPink"  
                     CornerRadius="50"
                     Padding="15"
@@ -57,7 +103,19 @@
                     TextColor="white"
                     x:Name="BtnSave"
                     Clicked="BtnSave_Clicked"/>
-        </StackLayout>
+                <Button Text="Cancel "
+                    BackgroundColor="DeepPink"  
+                    CornerRadius="50"
+                    Padding="15"
+                    Margin="15"
+                    FontSize="Medium"
+                    TextColor="white"
+                    x:Name="BtnCancel"
+                    Clicked="BtnCancel_Clicked"/>
+            </StackLayout>
+
+        </ScrollView>
+
     </ContentPage.Content>
 </ContentPage>
     

@@ -26,12 +26,12 @@
                       Keyboard="Default"/>
             <Entry Placeholder="Email"
                      Text="{Binding Client.ClientEmail,Mode=OneWay}"
-                     PlaceholderColor="Transparent"
+                     PlaceholderColor="LightGray"
                      TextColor="white"
                      x:Name="EntryEmail"
                       />
             <Entry Placeholder="Home Address"
-                     Text="{Binding Client.Address}"
+                     Text="{Binding Client.ClientAddress}"
                      PlaceholderColor="LightGray"
                      TextColor="White"
                      x:Name="EntryHome"
@@ -42,19 +42,18 @@
                      TextColor="White"
                      x:Name="EntryPhone"
                      Keyboard="Default" />
-            <Entry Placeholder="Register Date"
-                   Text="{Binding Client.RegisteredDate,Mode=OneWay}"
-                   x:Name="EntryRegister"
-                   FontSize="18"
-                   TextColor="White"
-                   IsReadOnly="True"/>
-           
+            <Label Text="Register Date:"
+                   FontSize="12"
+                   TextColor="LightGray"
+                   Padding="0,10,0,0">
+                
+            </Label>
+   
             <DatePicker HorizontalOptions="Fill"
                     x:Name="dateRegister"
                     Format="D"
                     Margin="30, 0, 0, 30"
-                    Date="{Binding Client.RegisteredDate}"
-                    DateSelected="dateRegister_DateSelected"/>
+                    Date="{Binding Client.RegisteredDate}"/>
 
 
             <Entry Text="{Binding Client.ClientId}"
@@ -69,7 +68,7 @@
                     TextColor="white"
                     x:Name="BtnSave"
                     Clicked="BtnSave_Clicked"/>
-                <Button Text="Cancel "
+             <Button Text="Cancel "
                     BackgroundColor="DeepPink"  
                     CornerRadius="50"
                     Padding="15"

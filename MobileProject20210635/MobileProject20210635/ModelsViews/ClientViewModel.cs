@@ -18,18 +18,18 @@ namespace MobileProject20210635.ModelsViews
 /*        public string Name { get => name; set => SetProperty(ref name, value); }*/
         public ObservableRangeCollection<ClientInfo> ClientList { get; set; }
         public AsyncCommand AddCommand { get; }
+        public AsyncCommand<ClientInfo> RemoveCommand { get; }
         public AsyncCommand RefreshCommand { get; }
 
         /*      public IClientServices ClientServices { get }*/
-       IClientServices clientService { get; set; }
-        
-
+        public IClientServices clientService { get; set; }
 
         public ClientViewModel()
         {
             ClientList = new ObservableRangeCollection<ClientInfo>();
             RefreshCommand = new AsyncCommand(Refresh);
-            AddCommand = new AsyncCommand(Add); ;
+            AddCommand = new AsyncCommand(Add);
+            RemoveCommand = new AsyncCommand<ClientInfo>(Remove);
             clientService = DependencyService.Get<IClientServices>();
 
         }
@@ -45,14 +45,9 @@ namespace MobileProject20210635.ModelsViews
 
             await clientService.AddClient(name, email, address, phone,date);
             await Refresh();
-
-/*            var route = $"{nameof(AddMyCoffeePage)}?Name=Motz";
-            await Shell.Current.GoToAsync(route);*/
-
         }
         async Task Refresh()
         {
-
 
             IsBusy = true;
             await Task.Delay(500);
@@ -64,14 +59,13 @@ namespace MobileProject20210635.ModelsViews
             ClientList.AddRange(client);
 
             IsBusy = false;
-            /*
-                        DependencyService.Get<IToast>()?.MakeToast("Refreshed!");*/
         }
+        async Task Remove(ClientInfo client)
+        {
 
-
-
-
-
-
+            ClientServices clientService = new ClientServices();
+            await clientService.RemoveClient(client.ClientId);
+            await Refresh();
+        }
     }
 }

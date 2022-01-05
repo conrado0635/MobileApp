@@ -12,7 +12,7 @@ using MobileProject20210635.Services;
 [assembly: Dependency(typeof(ClientServices))]
 namespace MobileProject20210635.Services
 {
-    class ClientServices
+     public class ClientServices
     {
         SQLiteAsyncConnection db;
 

@@ -47,10 +47,10 @@ namespace MobileProject20210635.Views
 
         }
 
-        private void BtnBack_Clicked(object sender, EventArgs e)
+        private async void BtnBack_Clicked(object sender, EventArgs e)
         {
-            /* await Navigation.PushAsync(new MyAccountPage());*/
-           Application.Current.MainPage = new NavigationPage(new SettingPage());
+            await Navigation.PushModalAsync(new SupervisorView());
+            /*     Application.Current.MainPage = new NavigationPage(new SettingPage());*/
 
         }
 

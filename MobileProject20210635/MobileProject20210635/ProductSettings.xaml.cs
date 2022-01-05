@@ -24,7 +24,7 @@ namespace MobileProject20210635
         {
 
          /*   lvProductList.ItemsSource = null;*/
-            Navigation.PushAsync(new AddProductPage());
+            Navigation.PushModalAsync(new AddProductPage());
         }
 
         private void TapGestureRecognizer_Tapped_Edit(object sender, EventArgs e)

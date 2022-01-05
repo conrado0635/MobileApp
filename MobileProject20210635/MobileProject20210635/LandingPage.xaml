@@ -15,7 +15,7 @@
                    HorizontalTextAlignment="Center" 
                    FontSize="Large"
                    Padding="40,10,40,10"/>
-            <Label TextColor="hotPink"
+            <Label TextColor="DodgerBlue"
                    Text="Our Store is open 24/7"
                    HorizontalTextAlignment="Center"
                    FontSize="Medium" 

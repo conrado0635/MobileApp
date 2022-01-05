@@ -32,8 +32,13 @@ namespace MobileProject20210635
                 newProduct.ProductImage = "cake5.png";
             }
            MessagingCenter.Send(this, "AddOrEditProduct", newProduct);
-           
-            await Navigation.PopAsync();
+
+            await Navigation.PushModalAsync(new ProductSettings());
+        }
+
+        private async void BtnCancel_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new ProductSettings());
         }
     }
 }     

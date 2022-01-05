@@ -13,9 +13,10 @@ namespace MobileProject20210635.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
 
+    
     public partial class UserDetailPage : ContentPage
     {
-
+        public string userType;
         public UserDetailPage(Users user = null)
         {
             InitializeComponent();
@@ -36,7 +37,11 @@ namespace MobileProject20210635.Views
                 EmailAddress = EntryEmail.Text,
                 HomeAddress = EntryHome.Text,
                 Phone = EntryPhone.Text,
-                Password = EntryPassword.Text
+                Password = EntryPassword.Text,
+                UserType=userType,
+                SignInDate=dateStart.Date,
+                SignOutDate=dateFinish.Date
+
             };
 
             if (!string.IsNullOrEmpty(EntryId.Text))
@@ -64,7 +69,31 @@ namespace MobileProject20210635.Views
             }
         }
 
+        private async void BtnCancel_Clicked(object sender, EventArgs e)
+        {    
+          await Navigation.PushModalAsync(new DisplayAllUser());
+          
+        }
 
+        private void picker_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           /* var picker = (Picker)sender;*/
+            int selectedIndex = picker.SelectedIndex;
+
+            if (selectedIndex ==0)
+            {
+                userType = (string)picker.ItemsSource[selectedIndex];
+            }
+            if (selectedIndex == 1)
+            {
+                userType = (string)picker.ItemsSource[selectedIndex];
+            }
+            if (selectedIndex == 2)
+            {
+                userType = (string)picker.ItemsSource[selectedIndex];
+            }
+
+        }
     }
 }    
 

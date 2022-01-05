@@ -51,7 +51,10 @@ namespace MobileProject20210635
                 EntryEmail.Text,
                 EntryAddress.Text,
                 EntryPhone.Text,
-                EntryPassword.Text);
+                EntryPassword.Text,
+                DateTime.Now,
+                DateTime.Now,
+                String.Empty);
             
 
             await Navigation.PushModalAsync(new LogInPage());

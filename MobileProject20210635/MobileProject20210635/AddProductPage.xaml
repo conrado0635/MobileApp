@@ -24,8 +24,8 @@
                       Keyboard="Default"/>
             <Entry Placeholder="Price"
                    Text="{Binding Product.ProductPrice}"
-                     PlaceholderColor="Transparent"
-                     TextColor="DodgerBlue"
+                     PlaceholderColor="LightGray"
+                     TextColor="White"
                      x:Name="EntryPrice"
                      Keyboard="Numeric" />
             <Entry Placeholder="Image Url"
@@ -44,6 +44,16 @@
                     TextColor="white"
                     x:Name="BtnSave"
                     Clicked="BtnSave_Clicked"/>
+            <Button Text="Cancel"
+                    BackgroundColor="DeepPink"  
+                    CornerRadius="50"
+                    Padding="15"
+                    Margin="15"
+                    FontSize="Medium"
+                    TextColor="white"
+                    x:Name="BtnCancel"
+                    Clicked="BtnCancel_Clicked"/>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

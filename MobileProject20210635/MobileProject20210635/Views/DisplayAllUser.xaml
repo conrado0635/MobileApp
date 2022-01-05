@@ -6,7 +6,8 @@
              xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              x:Class="MobileProject20210635.Views.DisplayAllUser"
              x:DataType="viewmodels:UserViewModel"
-             x:Name="AllUserPage">
+             x:Name="AllUserPage"
+             Title="All User">
     <ContentPage.BindingContext>
         <viewmodels:UserViewModel/>
     </ContentPage.BindingContext>
@@ -21,14 +22,14 @@
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="80" />
                             <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="30" />
+                            <ColumnDefinition Width="80" />
                         </Grid.ColumnDefinitions>
 
                         <ImageButton Grid.Column="0"
                                 Padding="5"
                                 Margin="5"
                                 BackgroundColor="DeepPink"
-                                WidthRequest="60"
+                                WidthRequest="50"
                                 HeightRequest="40"
                                 Source="arrow_back.png"
                                 x:Name="BtnBack" 
@@ -40,105 +41,126 @@
                                  Padding="10"
                                  HorizontalOptions="Center"
                                  FontSize="20"
-                                
                                  TextColor="White"/>
-                    </Grid>
+                    <Image Grid.Column="2"       
+                           Margin="5"
+                           Source="add.png"
+                           WidthRequest="50"
+                           HeightRequest="40"
+                           BackgroundColor="DeepPink">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer
+                               Command="{Binding Source={x:Reference AllUserPage}, Path=BindingContext.AddCommand}"
+                               CommandParameter="{Binding .}"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Grid>
                  </StackLayout>
                  <StackLayout>
                 <ListView x:Name="lvUserList"
                                   ItemsSource="{Binding UsersList}"
-                                  SeparatorColor="Aqua"
                                   SeparatorVisibility="Default"
                                   SelectionMode="Single"
                                   HasUnevenRows="True">
                     <ListView.ItemTemplate>
                         <DataTemplate x:DataType="model:Users">
                             <ViewCell >
-                                <ViewCell.ContextActions>
-                                    <MenuItem
-                                             Command="{Binding Source={x:Reference AllUserPage}, Path=BindingContext.AddCommand}"
-                                            CommandParameter="{Binding .}"
-                                            IsDestructive="True"
-                                            Text="Add"/>
-                                </ViewCell.ContextActions>
                                 <Grid Padding="0"
-                                                  Margin="5">
+                                      Margin="5"
+                                      HeightRequest="380">
                                     <Frame CornerRadius="5"
                                                        Margin="5"
                                                        Padding="5"
-                                     
+                                                       BackgroundColor="Gray"
                                                        HasShadow="True">
-                                        <Grid RowSpacing="10"
-                                                          ColumnSpacing="5"
-                                                          VerticalOptions="Center"
-                                                          HorizontalOptions="Center">
+                                        <Grid RowSpacing="10"       
+                                              ColumnSpacing="5"
+                                              VerticalOptions="Center"
+                                              HorizontalOptions="Center">
                                             <Grid.RowDefinitions>
-                                                <RowDefinition Height="180"/>
+                                                <RowDefinition Height="400"/>
                                             </Grid.RowDefinitions>
                                             <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="Auto"/>
-                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="300"/>
+                                                <ColumnDefinition Width="80"/>
                                             </Grid.ColumnDefinitions>
-                                            <StackLayout WidthRequest="250"
-                                                                   HeightRequest="100" >
-                                                <StackLayout Orientation="Horizontal">
-                                                    <Label Text="{Binding Id}"
-                                                                   FontSize="12"
-                                                                       Padding="5"
-                                                                   TextColor="DeepPink"
-                                                                   x:Name="labelId">
-                                                    </Label>
+                                            <StackLayout Grid.Column="0" 
+                                                         WidthRequest="250"
+                                                         HeightRequest="400"
+                                                         Padding="6">
+                                                <StackLayout>
+                                                    <Label Text="Name:" TextColor="YellowGreen" FontSize="11"/>
                                                     <Label Text="{Binding Name}"
-                                                                   FontSize="16"
-                                                                   Padding="1"
-                                                                   TextColor="DeepPink"
-                                                                   x:Name="labelName">
-                                                    </Label>
+                                                           FontSize="16"
+                                                           Padding="2"
+                                                           TextColor="DeepPink"
+                                                           x:Name="labelName"/>
                                                 </StackLayout>
-
+                                                <Label Text="Email:" TextColor="YellowGreen" FontSize="11"/>
                                                 <Label Text="{Binding EmailAddress}"
-                                                                   TextColor="Gray"                                   
-                                                                   FontSize="Small"
-                                                                   Padding="5"
+                                                                   TextColor="White"                                   
+                                                                   FontSize="14"
+                                                                   Padding="2"
                                                                   ></Label>
+                                                <Label Text="Address:" TextColor="YellowGreen" FontSize="11"/>
                                                 <Label Text="{Binding HomeAddress}"
-                                                                   TextColor="gray"
-                                                                   Padding="5"
-                                                                   FontSize="Small" 
+                                                                   TextColor="White"
+                                                                   Padding="2"
+                                                                   FontSize="14" 
                                                                    ></Label>
+                                                <Label Text="Phone:" TextColor="YellowGreen" FontSize="11"/>
                                                 <Label Text="{Binding Phone}"
-                                                                   TextColor="gray"
-                                                                   Padding="5"                     
-                                                                   FontSize="Small"
+                                                                   TextColor="White"
+                                                                   Padding="2"                     
+                                                                   FontSize="14"
+                                                                   ></Label>
+                                                <Label Text="Type of User:" TextColor="YellowGreen" FontSize="11"/>
+                                                <Label Text="{Binding UserType}"
+                                                                   TextColor="White"
+                                                                   Padding="2"                     
+                                                                   FontSize="14"
+                                                                   ></Label>
+                                                <Label Text="Start Date:" TextColor="YellowGreen" FontSize="11"/>
+                                                <Label Text="{Binding SignInDate}"
+                                                                   TextColor="White"
+                                                                   Padding="2"                     
+                                                                   FontSize="14"
+                                                                   ></Label>
+                                                <Label Text="Finished Date:" TextColor="YellowGreen" FontSize="11"/>
+                                                <Label Text="{Binding SignOutDate}"
+                                                                   TextColor="White"
+                                                                   Padding="2"                     
+                                                                   FontSize="14"
                                                                    ></Label>
                                                 <Label Text="{Binding Password}"
-                                                                   Padding="5"
+                                                                   Padding="2"
                                                                    IsVisible="False"
                                                                    ></Label>
                                             </StackLayout>
 
                                             <StackLayout Grid.Column="1"  
-                                                                     Background="Gray"
-                                                                     Padding="5"
-                                                                     HorizontalOptions="Center"
-                                                                     VerticalOptions="Center">
+                                                         Background="Gray"
+                                                         Padding="5"
+                                                         HorizontalOptions="Center"
+                                                         VerticalOptions="StartAndExpand"
+                                                         BackgroundColor="White">
 
                                                 <Image Source="edit.png"
-                                                                             WidthRequest="40"
-                                                                             HeightRequest="38"
-                                                                             Margin="5"
-                                                                             BackgroundColor="DeepPink">
+                                                       WidthRequest="40"
+                                                       HeightRequest="38"
+                                                       Margin="5"
+                                                       BackgroundColor="DeepPink">
                                                     <Image.GestureRecognizers>
                                                         <TapGestureRecognizer
-                                                                        Tapped="TapGestureRecognizer_Tapped_Edit"
-                                                                        CommandParameter="{Binding Id}"/>
+                                                                Tapped="TapGestureRecognizer_Tapped_Edit"
+                                                                CommandParameter="{Binding Id}"/>
                                                     </Image.GestureRecognizers>
                                                 </Image>
                                                 <Image Source="delete.png"
-                                                                             WidthRequest="40"
-                                                                             HeightRequest="38"
-                                                                             Margin="5"
-                                                                             BackgroundColor="DeepPink">
+                                                       WidthRequest="40"
+                                                       HeightRequest="38"
+                                                       Margin="5"
+                                                       BackgroundColor="DeepPink">
                                                     <Image.GestureRecognizers>
                                                         <TapGestureRecognizer
                                                                         Command="{Binding Source={x:Reference AllUserPage}, Path=BindingContext.RemoveCommand}"

@@ -7,7 +7,7 @@ namespace MobileProject20210635.Models
 {
    public class MerchandiserInfo
     {
-        [PrimaryKey]
+        [PrimaryKey,AutoIncrement]
         public int MerchatId { get; set; }
         public string MerchantName { get; set; }
         public string MerchantEmail { get; set; }

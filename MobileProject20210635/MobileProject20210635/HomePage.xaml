@@ -15,12 +15,10 @@
 
     <local:ProductPage >
     </local:ProductPage >
-    <local:SettingPage>
-    </local:SettingPage>
     <local:MyAccountPage>
     </local:MyAccountPage>
-    <local:ShippingPage>
-    </local:ShippingPage >
+    <local:EmployeePage>
+    </local:EmployeePage>
     <local:ContactPage>
     </local:ContactPage >
 

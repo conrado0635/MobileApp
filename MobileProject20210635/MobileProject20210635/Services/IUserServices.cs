@@ -9,7 +9,7 @@ namespace MobileProject20210635.Services
    public interface IUserServices
     {
 
-        Task AddUser(string name, string email,string address,string department,string password);
+        Task AddUser(string name, string email,string address,string department,string password,DateTime signIn,DateTime dateTime,string userType);
         Task UpdateUser(Users user);
         Task<IEnumerable<Users>> GetUser();
         Task<Users> GetUser(int id);

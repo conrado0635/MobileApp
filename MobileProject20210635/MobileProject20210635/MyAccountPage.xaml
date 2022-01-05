@@ -44,28 +44,20 @@
                 <Label Margin="20,0,20,0"
                        Text="Change Password"
                        TextColor="DeepPink"
-                       FontSize="Medium">
+                       FontSize="Medium"
+                       HorizontalTextAlignment="Center">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer x:Name="TapChangePassword" Tapped="TapChangePassword_Tapped" />
                     </Label.GestureRecognizers>
                 </Label>
-                <BoxView HeightRequest="1"
-                         BackgroundColor="Gray" />
-                <Label Margin="20,0,20,0"
-                       Text="Display User"
-                       TextColor="DeepPink"
-                       FontSize="Medium">   
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer x:Name="TapDisplayAllUser" Tapped="TapDisplayAllUser_Tapped"/>
-                    </Label.GestureRecognizers>
-                </Label>
+
                 <BoxView HeightRequest="1"
                          BackgroundColor="#001970" />
                 <Label Margin="20,0,20,0"
                        Text="Logout"
                        TextColor="DeepPink"
                        FontSize="Medium"
-                       >
+                       HorizontalTextAlignment="Center">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer x:Name="TapLogout" Tapped="TapLogout_Tapped"/>
                     </Label.GestureRecognizers>

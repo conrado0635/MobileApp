@@ -44,11 +44,13 @@ namespace MobileProject20210635.ModelsViews
             var address = await App.Current.MainPage.DisplayPromptAsync(" HomeAddress", " HomeAddress");
             var phone = await App.Current.MainPage.DisplayPromptAsync("Phone", "Phone");
             var password = await App.Current.MainPage.DisplayPromptAsync("Password", "Password");
-
-            await userService.AddUser(name, email,address,phone,password);
+            var signIn = DateTime.UtcNow;
+            var signOut = DateTime.UtcNow;
+            var userType = "User";
+            await userService.AddUser(name, email,address,phone,password,signIn,signOut,userType);
             await Refresh();
 
- /*           var route = $"{nameof(AddMyCoffeePage)}?Name=Motz";
+ /*           var route = $"{nameof(AddUserPage)}?Name=Conz";
             await Shell.Current.GoToAsync(route);*/
 
         }

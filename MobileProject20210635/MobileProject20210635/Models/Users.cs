@@ -15,7 +15,9 @@ namespace MobileProject20210635.Models
         public string Phone{ get; set; }
         public string EmailAddress { get; set; }
         public string Password { get; set; }
-
+        public DateTime SignInDate { get; set; }
+        public DateTime SignOutDate { get; set; }
+        public string UserType { get; set; }
         public override string ToString()
         {
             return this.Name + " " + this.EmailAddress;

@@ -25,8 +25,14 @@
     <Compile Update="ProductSettings.xaml.cs">
       <DependentUpon>ProductSettings.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\DisplayAllTicket.xaml.cs">
+      <DependentUpon>DisplayAllTicket.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\EditClientPage.xaml.cs">
       <DependentUpon>EditClientPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="EmployeePage.xaml.cs">
+      <DependentUpon>EmployeePage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
@@ -70,6 +76,12 @@
     <EmbeddedResource Update="Views\AddClientView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Views\AddTicketPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\DisplayAllTicket.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\DisplayAllClient.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -79,6 +91,18 @@
     <EmbeddedResource Update="Views\EditClientPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="EmployeePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\EditTicketPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\MerchandiserView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\SupervisorView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\UserDetailPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -86,6 +110,5 @@
 
   <ItemGroup>
     <Folder Include="Merchandiser\" />
-    <Folder Include="Supervisor\" />
   </ItemGroup>
 </Project>

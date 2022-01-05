@@ -1,0 +1,130 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            x:Class="MobileProject20210635.Views.AddTicketPage"
+            xmlns:local="clr-namespace:MobileProject20210635.ModelsViews"
+            Title="Ticket"
+            BackgroundColor="LightGreen"
+            Shell.PresentationMode="Modal">
+    <ContentPage.BindingContext>
+        <local:TicketViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+
+        <ScrollView>
+            <StackLayout Padding="10"  
+                     BackgroundColor="Gray">
+                <Label Grid.Column="1"
+                       TextColor="White"
+                       Text="Add Ticket"
+                       FontSize="24"
+                       HorizontalOptions="CenterAndExpand"
+                       Margin="5" />
+                <Entry Placeholder="Name"
+                      PlaceholderColor="LightGray"
+                      TextColor="White"
+                      x:Name="EntryName"
+                      Keyboard="Default"/>
+                <Entry Placeholder="Description"
+                     PlaceholderColor="LightGray"
+                     TextColor="white"
+                     x:Name="EntryDescription"/>
+                <Entry Placeholder="Comment"
+                     PlaceholderColor="LightGray"
+                     TextColor="White"
+                     x:Name="EntryComment"
+                     Keyboard="Default" />
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="checkBox" 
+                              CheckedChanged="checkBox_CheckedChanged"/>
+                    <Label Text="Status:"
+                           x:Name="LabelStatus"
+                           TextColor="white">
+                        <Label.Triggers>
+                            <DataTrigger TargetType="Label"
+                                      Binding="{Binding Source={x:Reference checkBox}, Path=IsChecked}"
+                                      Value="false">
+                                <Setter Property="TextColor"
+                                         Value="White" />
+                                <Setter Property="TextColor"
+                                        Value="Green" />
+                            </DataTrigger>
+                        </Label.Triggers>
+                    </Label>
+
+                </StackLayout>
+
+                <Label Text="Start Date:"
+                   FontSize="12"
+                   TextColor="LightGray"
+                   Padding="0,10,0,0">
+                </Label>
+                <DatePicker HorizontalOptions="Fill"
+                    x:Name="dateStart"
+                    Format="D"
+                    Margin="30, 0, 0, 30"/>
+
+                <Label Text="Finished Date:"
+                   FontSize="12"
+                   TextColor="LightGray"
+                   Padding="0,10,0,0">
+                </Label>
+                <DatePicker HorizontalOptions="Fill"
+                    x:Name="dateFinish"
+                    Format="D"
+                    Margin="30, 0, 0, 30"
+                    />
+
+                <Label Text="Start Time:"
+                   FontSize="12"
+                   TextColor="LightGray"
+                   Padding="0,10,0,0">
+                </Label>
+                <TimePicker                 
+                     TextColor="White"
+                     x:Name="startTime"
+                     Time="00:00:00"
+                     Format="T"
+                     PropertyChanged="startTime_PropertyChanged"/>
+
+                <Label Text="Finished Time:"
+                           FontSize="12"
+                           TextColor="LightGray"
+                           Padding="0,10,0,0">
+                </Label>
+                <TimePicker                  
+                     TextColor="White"
+                     x:Name="finishTime"
+                     Time="00:00:00"
+                     Format="T"
+                     PropertyChanged="finishTime_PropertyChanged"/>
+
+                <StackLayout Padding="20">
+                    <Button Text="Save "
+                    BackgroundColor="DeepPink"  
+                    CornerRadius="50"
+                    Padding="15"
+                    Margin="15"
+                    FontSize="Medium"
+                    TextColor="white"
+                    x:Name="BtnSave"
+                    Clicked="BtnSave_Clicked"/>
+                    <Button Text="Cancel "
+                    BackgroundColor="DeepPink"  
+                    CornerRadius="50"
+                    Padding="15"
+                    Margin="15"
+                    FontSize="Medium"
+                    TextColor="white"
+                    x:Name="BtnCancel"
+                    Clicked="BtnCancel_Clicked"/>
+
+                </StackLayout>
+
+            </StackLayout>
+
+
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
+    
+    

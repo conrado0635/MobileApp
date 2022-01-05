@@ -8,11 +8,12 @@ namespace MobileProject20210635.Services
 {
     public interface IClientServices
     {
-        Task AddClient(string name, string email, string address, string phone,DateTime date);
+        Task AddClient(string name, string email, string address, string phone, DateTime date);
   /*      Task UpdateUser(ClientInfo user);*/
         Task<IEnumerable<ClientInfo>> GetClient();
         Task<ClientInfo> GetClient(int id);
-/*        Task<Users> GetOneUser(string email, string password);
-        Task RemoveUser(int id);*/
+        Task RemoveClient(int id);
+
+  
     }
 }

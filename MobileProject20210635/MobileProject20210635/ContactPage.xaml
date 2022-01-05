@@ -1,15 +1,79 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              x:Class="MobileProject20210635.ContactPage"
              Title="Contact"
              IconImageSource="post_office.png">
-    
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Contact Page!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+
+    <ContentPage.Content >
+        <ScrollView BackgroundColor="LightPink">
+            <Frame CornerRadius="20"
+                   Padding="10"
+                   Margin="10"
+                   BackgroundColor="DeepPink">
+                <StackLayout Padding="10">
+                    <StackLayout Padding="20">
+                        <Label TextColor="White"
+                       Text="Contact Us"    
+                       FontSize="Title"
+                       HorizontalTextAlignment="Center"
+                       Margin="20" />
+                    </StackLayout>
+
+
+                    <Entry Placeholder="Name"
+                       PlaceholderColor="LightGray"
+                       TextColor="White"
+                       x:Name="EntryName"
+                       Keyboard="Text" 
+                       ClearButtonVisibility="WhileEditing"/>
+
+                    <Entry Placeholder="Email"
+                       PlaceholderColor="LightGray"
+                       TextColor="White"
+                       x:Name="EntryEmail"
+                       Keyboard="Email"
+                       ClearButtonVisibility="WhileEditing"/>
+
+                    <Entry Placeholder=" Phone Number"
+                       PlaceholderColor="LightGray"
+                       TextColor="White"
+                       x:Name="EntryPhone"
+                       Keyboard="Text" 
+                       ClearButtonVisibility="WhileEditing"/>
+                    <Entry Placeholder=" Home Address"
+                       PlaceholderColor="LightGray"
+                       TextColor="White"
+                       x:Name="EntryAddress"
+                       Keyboard="Text"
+                       ClearButtonVisibility="WhileEditing"/>
+                    <Editor Text="Type your message here..."
+                            FontSize="Small"
+                            TextColor="Black"
+                            PlaceholderColor="LightGray"
+                            Background="white"
+                            MaxLength="150"
+                            WidthRequest="300"
+                            HeightRequest="100"
+                            VerticalOptions="Center"
+                            Margin="10"
+                            Keyboard="Plain"/>
+
+                    <Button Text="Send"
+                        HorizontalOptions="Center"
+                        WidthRequest="300"
+                        CornerRadius="50"
+                        Margin="10,20,10,20"
+                        Padding="15"
+                        FontSize="Medium"
+                        BackgroundColor="White"
+                        TextColor="DeepPink"
+                        x:Name="BtnSend" 
+                        Clicked="BtnSend_Clicked"/>
+                </StackLayout>
+            </Frame>
+
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
