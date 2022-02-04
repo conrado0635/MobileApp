@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using MobileProject20210635.Services;
+using Xamarin.Essentials;
 
 namespace MobileProject20210635
 {
@@ -37,8 +38,6 @@ namespace MobileProject20210635
                         var userQuery = db.Table<Models.Users>().Where(x => x.EmailAddress.Equals(EntryEmail.Text) && x.Password.Equals(EntryPassword.Text)).FirstOrDefault();*/
             UserServices userQuery = new UserServices();
             var query = await userQuery.GetOneUser(EntryEmail.Text, EntryPassword.Text);
-           
-         
             if (query!= null)
             {
                
@@ -46,7 +45,8 @@ namespace MobileProject20210635
                     currentUserName = query.Name;
                     currentUserEmail = query.EmailAddress;
                 }
-
+                Preferences.Set("AccessEmailName", EntryEmail.Text);
+                Preferences.Set("AccessPassword", EntryPassword.Text);
                 Application.Current.MainPage = new NavigationPage(new HomePage());
             }
             else

@@ -12,7 +12,8 @@
     <ContentPage.Content>
   
             <StackLayout>
-                <ListView ItemsSource="{Binding ProductList}"
+                <ListView x:Name="productListView" ItemSelected="productListView_ItemSelected" 
+                          ItemsSource="{Binding ProductList}"
                           SeparatorColor="Aqua"
                           SeparatorVisibility="None"
                           HasUnevenRows="True">

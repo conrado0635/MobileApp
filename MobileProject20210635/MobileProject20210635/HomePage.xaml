@@ -13,14 +13,14 @@
 
     <!--Pages can be added as references or inline-->
 
-    <local:ProductPage >
-    </local:ProductPage >
-    <local:MyAccountPage>
-    </local:MyAccountPage>
-    <local:EmployeePage>
-    </local:EmployeePage>
-    <local:ContactPage>
-    </local:ContactPage >
+    <local:ProductPage x:Name="ProductPage"/>
+
+    <local:MyAccountPage/>
+
+    <local:EmployeePage/>
+
+    <local:ContactPage/>
+
 
     <!--<local:ProductPage Title="Product" />-->
 

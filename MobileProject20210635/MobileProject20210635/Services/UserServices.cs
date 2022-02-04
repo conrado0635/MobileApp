@@ -13,33 +13,45 @@ using MobileProject20210635.Services;
 [assembly: Dependency(typeof(UserServices))]
 namespace MobileProject20210635.Services
 {
-  public class UserServices: IUserServices
+    public class UserServices : IUserServices
     {
-        SQLiteAsyncConnection db;
+        public SQLiteAsyncConnection db;
 
-      /*  public object UsersList { get; private set; }
-*/
-        async Task Init()
+/*        public UserServices(){
+            if (db != null)
+            {
+                var dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "MyData1.db");
+                db = new SQLiteAsyncConnection(dbPath);
+                db.CreateTableAsync<Users>();
+            }
+
+        }*/
+
+       public async Task Init()
         {
             if (db != null)
                 return;
             // Get an absolute path to the database file
             var databasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "MyData1.db");
-
-             db = new SQLiteAsyncConnection(databasePath);
+            Console.WriteLine(databasePath);
+            db = new SQLiteAsyncConnection(databasePath);
 
             await db.CreateTableAsync<Users>();
 
             Console.WriteLine("Table created!");
+            
+          
+
         }
-         public async Task AddUser(string name,string email,string address,string phone,string password,DateTime signIn,DateTime signOut, string userType)
+
+        public async Task AddUser(string name,string email,string address,string phone,string password,DateTime signIn,DateTime signOut, string userType="User")
         {
-            await Init();
+           await Init();
             var newUser = new Users
             {
                 Name = name,
-                EmailAddress = email,
-                HomeAddress = address,   
+                EmailAddress = email.ToLower(),
+                HomeAddress = address.ToLower(),   
                 Phone = phone,
                 Password = password,
                 SignInDate=signIn,

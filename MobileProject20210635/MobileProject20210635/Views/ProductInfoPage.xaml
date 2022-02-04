@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileProject20210635.Views.ProductInfoPage">
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+            <Image Source="{Binding ProductImage}"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"
+                   WidthRequest="300"
+                   HeightRequest="300">
+            </Image>
+            <StackLayout Orientation="Horizontal" Spacing="5" Padding="10" HorizontalOptions="Center">
+                <Label Text="Product Name:"/>
+                <Label Text="{Binding ProductName}"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Spacing="5" Padding="10" HorizontalOptions="Center">
+                <Label Text="Product Price:"/>
+                <Label Text="{Binding ProductPrice}"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

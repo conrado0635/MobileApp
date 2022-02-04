@@ -76,7 +76,7 @@ namespace MobileProject20210635.ModelsViews
                 IsBusy = true;
 
     #if DEBUG
-                await Task.Delay(500);
+                await Task.Delay(5000);
     #endif
 
                 UsersList.Clear();

@@ -58,10 +58,11 @@
                  </StackLayout>
                  <StackLayout>
                 <ListView x:Name="lvUserList"
-                                  ItemsSource="{Binding UsersList}"
-                                  SeparatorVisibility="Default"
-                                  SelectionMode="Single"
-                                  HasUnevenRows="True">
+                          ItemsSource="{Binding UsersList}"
+                          SeparatorVisibility="Default"
+                          SelectionMode="Single"
+                          HasUnevenRows="True"
+                          IsRefreshing="{Binding IsBusy, Mode=OneWay}">
                     <ListView.ItemTemplate>
                         <DataTemplate x:DataType="model:Users">
                             <ViewCell >

@@ -71,6 +71,7 @@ namespace MobileProject20210635.Views
             await Navigation.PushModalAsync(new DisplayAllTicket());
         }
 
+        //Update database Status.
         public void checkBox_CheckedChanged(object sender, CheckedChangedEventArgs e)
         {
             if (e.Value)

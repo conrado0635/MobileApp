@@ -27,7 +27,7 @@ namespace MobileProject20210635
                     ProductId = 2,
                     ProductName = "BlueBChoc",
                     ProductPrice = "20.0",
-                    ProductImage = "cake2.png"
+                    ProductImage = $"cake2.png"
                 });
                 ProductList.Add(new ProductInfo()
                 {

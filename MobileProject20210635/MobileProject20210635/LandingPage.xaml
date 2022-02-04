@@ -5,30 +5,62 @@
              NavigationPage.HasNavigationBar="False">
 
     <StackLayout Background="white">
-        <Frame Padding="24" CornerRadius="0">
-            <Image Source="cake_logo.png"></Image>
-       
-        </Frame>
-      
-            <Label TextColor="DeepPink" 
+        <Label TextColor="DeepPink" 
+                   Text="Our Latest Cake.."
+                   HorizontalTextAlignment="Center" 
+                   FontSize="20"
+                   Padding="20"/>
+
+        <CarouselView x:Name="MainCarousel"
+                      IndicatorView="CarouselIndicatorView">
+            <CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Padding="10" CornerRadius="0">
+                        <Image WidthRequest="250"
+                           HeightRequest="300"
+                           HorizontalOptions="Fill"
+                           Aspect="Fill"
+                           Source="{Binding .}">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer x:Name="TappedImage"
+                                                      Tapped="TappedItem_Tapped"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+
+                    </Frame>
+
+                </DataTemplate>
+            
+            </CarouselView.ItemTemplate>
+  
+                
+        </CarouselView>
+        <IndicatorView x:Name="CarouselIndicatorView"
+                       IndicatorColor="LightBlue"
+                       SelectedIndicatorColor="DodgerBlue"
+                       IndicatorSize="16"
+                       HorizontalOptions="Center">
+
+        </IndicatorView>
+
+
+        <Label TextColor="DeepPink" 
                    Text="For all your cake solutions..."
                    HorizontalTextAlignment="Center" 
                    FontSize="Large"
-                   Padding="40,10,40,10"/>
-            <Label TextColor="DodgerBlue"
+                   Padding="40,5,40,5"/>
+        <Label TextColor="DodgerBlue"
                    Text="Our Store is open 24/7"
                    HorizontalTextAlignment="Center"
                    FontSize="Medium" 
-                   Padding="40,10,40,10"/>
-          
-        <Button Text="Begin"
-                    CornerRadius="50"
-                    Margin="15"
-                    Padding="15"
-                    FontSize="Medium"
-                    TextColor="White"
-                    BackgroundColor="HotPink"
-                    x:Name="BtnBegin" Clicked="BtnBegin_Clicked"/>
+                   Padding="40,5,40,5"/>
+
+        <Button Text="Login"
+                Style="{StaticResource ButtonPrimary}"
+                x:Name="BtnLogin" Clicked="BtnLogin_Clicked"/>
+        <Button Text="SignUp"
+                Style="{StaticResource ButtonPrimary}"
+                x:Name="BtnSignIn" Clicked="BtnSignIn_Clicked"/>
     </StackLayout>
 
 </ContentPage>

@@ -3,6 +3,29 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MobileProject20210635.App">
     <Application.Resources>
+        <Style x:Key="ButtonPrimary" TargetType="Button">
+            <Setter Property="TextColor" Value="white"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="Margin" Value="20,5,20,10"/>
+            <Setter Property="BackgroundColor" Value="DeepPink"/>
+            <Setter Property="CornerRadius" Value="50"/>
+            <Setter Property="FontSize" Value="Medium"/>
+            <Setter Property="TextTransform" Value="Default"/>
+        </Style>
+        <Style x:Key="OverridePrimaryButton"
+               TargetType="Button"
+               BasedOn="{StaticResource ButtonPrimary}">
+            <Setter Property="Margin" Value="20,50,20,10"/>
+        </Style>
+        <Style x:Key="ButtonSecondary" TargetType="Button">
+            <Setter Property="TextColor" Value="DeepPink"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="Margin" Value="20,5,20,10"/>
+            <Setter Property="BackgroundColor" Value="white"/>
+            <Setter Property="CornerRadius" Value="50"/>
+            <Setter Property="FontSize" Value="Medium"/>
+            
+        </Style>
 
     </Application.Resources>
 </Application>

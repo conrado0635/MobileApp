@@ -36,7 +36,7 @@ namespace MobileProject20210635.Views
 
         private void BtnBackHome_Clicked(object sender, EventArgs e)
         {
-            /* await Navigation.PushAsync(new MyAccountPage());*/
+            //await ProductPage.Navigation.PushAsync(new MainPage());
             Application.Current.MainPage = new NavigationPage(new HomePage());
         }
     }
